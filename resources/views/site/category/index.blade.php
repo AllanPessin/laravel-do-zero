@@ -1,3 +1,6 @@
+<?php 
+  $categories = [];
+?>
 @extends('layouts.site')
 
 @section('content')
