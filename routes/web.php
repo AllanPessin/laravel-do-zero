@@ -17,11 +17,11 @@ use App\Http\Controllers\Site\HomeController;
 */
 
 Route::prefix('site')->group(function () {
-  Route::get('/', HomeController::class);
-  Route::get('/produtos', [CategoryController::class, 'index'])->name('produtos');  
-  Route::get('/produtos/{slug}', [CategoryController::class, 'show']);
-  Route::get('/blog', BlogController::class)->name('blog');
-  Route::view('/sobre', 'site.about.index');
-  Route::get('/contato', [ContactController::class, 'index']);
-  Route::post('/contato', [ContactController::class, 'form']);
+  Route::get('/', HomeController::class)->name('site.home');
+  Route::get('/produtos', [CategoryController::class, 'index'])->name('site.products');  
+  Route::get('/produtos/{slug}', [CategoryController::class, 'show'])->name('site.category');
+  Route::get('/blog', BlogController::class)->name('site.blog');
+  Route::view('/sobre', 'site.about.index')->name('site.about');
+  Route::get('/contato', [ContactController::class, 'index'])->name('site.contact');
+  Route::post('/contato', [ContactController::class, 'form'])->name('site.contact.form');
 });
